@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "schema": "mariadb -ujlapert -ppassword expressdb < ./src/DB/schema.sql"
+    "schema": "mariadb -ujlapert -ppassword expressdb < ./src/DB/schema.sql",
+    "seed": "mariadb -ujlapert -ppassword expressdb < ./src/DB/seed.sql",
+    "procUser": "mariadb -ujlapert -ppassword expressdb < ./src/DB/procedures/user_procedure.sql"
   },
   "author": "Maszala",
   "license": "ISC",
