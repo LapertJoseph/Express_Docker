@@ -44,7 +44,7 @@ CREATE OR REPLACE PROCEDURE addUser(
 )
 BEGIN
   INSERT INTO user (name, lastname, email, password, actif)
-  VALUES (p_name = name, p_lastname = lastname, p_email = email, p_password = SHA2(p_password, 512), p_actif);
+  VALUES (p_name, p_lastname, p_email, SHA2(p_password, 512), p_actif);
 END //
 
 DELIMITER ;
