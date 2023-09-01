@@ -24,7 +24,7 @@ CREATE OR REPLACE PROCEDURE getUserById(
   IN p_user_id INT(11)
 )
 BEGIN
-  SELECT * FROM user WHERE p_user_id = user_id;
+  SELECT * FROM user WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
