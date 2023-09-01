@@ -79,8 +79,8 @@ CREATE OR REPLACE PROCEDURE updateUser(
   IN p_actif TINYINT(1) 
 )
 BEGIN
-  UPDATE user SET p_name = name, p_lastname = lastname, p_email = email, p_password = SHA2(p_password, 512), p_actif = actif
-  WHERE p_user_id = user_id;
+  UPDATE user SET name = p_name, lastname = p_lastname, email = p_email, password = SHA2(p_password, 512), actif = p_actif
+  WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
