@@ -24,7 +24,8 @@ CREATE OR REPLACE PROCEDURE getUserById(
   IN p_user_id INT(11)
 )
 BEGIN
-  SELECT * FROM user WHERE user_id = p_user_id;
+  SELECT * FROM user 
+  WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
@@ -43,7 +44,7 @@ CREATE OR REPLACE PROCEDURE addUser(
   IN p_actif TINYINT(1)
 )
 BEGIN
-  INSERT INTO user (name, lastname, email, password, actif)
+  INSERT INTO user (name, lastname, email, `password`, actif)
   VALUES (p_name, p_lastname, p_email, SHA2(p_password, 512), p_actif);
 END //
 
@@ -59,7 +60,8 @@ CREATE OR REPLACE PROCEDURE deleteUser(
   IN p_user_id INT(11)
 )
 BEGIN
-  DELETE FROM user WHERE user_id = p_user_id;
+  DELETE FROM user 
+  WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
@@ -79,10 +81,27 @@ CREATE OR REPLACE PROCEDURE updateUser(
   IN p_actif TINYINT(1) 
 )
 BEGIN
-  UPDATE user SET name = p_name, lastname = p_lastname, email = p_email, password = SHA2(p_password, 512), actif = p_actif
+  UPDATE user SET name = p_name, lastname = p_lastname, email = p_email, `password` = SHA2(p_password, 512), actif = p_actif
   WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
+
+-------------------------------------------
+-- login : log user -----------------------
+-------------------------------------------
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE login(
+  IN p_email VARCHAR(255),
+  IN p_password VARCHAR(255)
+)
+BEGIN
+  SELECT email, `password`, `name` FROM user
+  WHERE email = p_email && `password` = SHA2(p_password, 512);
+END //
+
+DELIMITER ; 
 
 -- EOF --
