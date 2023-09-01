@@ -4,6 +4,7 @@ const cors = require("cors");
 const routes = require("./src/routes");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const verifToken = require("./src/middleware/verifToken");
 
 // function which parse the body on Json with BigInt
 BigInt.prototype.toJSON = function () {
@@ -23,6 +24,7 @@ app.use(
 
 app.use(cors());
 app.use(express.json());
+app.use(verifToken);
 app.use(routes)
 
 const port = process.env.PORT || 8000;
