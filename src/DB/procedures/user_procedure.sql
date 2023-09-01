@@ -59,7 +59,7 @@ CREATE OR REPLACE PROCEDURE deleteUser(
   IN p_user_id INT(11)
 )
 BEGIN
-  DELETE FROM user WHERE p_user_id = user_id;
+  DELETE FROM user WHERE user_id = p_user_id;
 END //
 
 DELIMITER ;
