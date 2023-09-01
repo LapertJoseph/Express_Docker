@@ -1,2 +1,4 @@
 node_modules
 .git
+src/config/env.js
+src/config/.env
