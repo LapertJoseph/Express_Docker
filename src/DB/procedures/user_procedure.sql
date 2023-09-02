@@ -102,6 +102,6 @@ BEGIN
   WHERE email = p_email && `password` = SHA2(p_password, 512);
 END //
 
-DELIMITER ; 
+DELIMITER ;
 
 -- EOF --

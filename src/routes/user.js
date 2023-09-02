@@ -10,6 +10,7 @@ const del = require('../controllers/user/del');
 const put = require("../controllers/user/put");
 const getById = require("../controllers/user/getById");
 const login = require("../controllers/auth/login");
+const logout = require('../controllers/auth/logout');
 
 
 const router = express.Router();
@@ -17,6 +18,7 @@ const router = express.Router();
 router.get("/users", get);
 router.get("/user/:id", getById);
 router.get("/auth", login);
+router.get("/auth/logout", logout)
 router.post("/user", post);
 router.delete("/user", del);
 router.put("/user", put);

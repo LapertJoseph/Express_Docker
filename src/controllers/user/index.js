@@ -8,6 +8,7 @@ const del = require("./del");
 const put = require("./put");
 const getById = require("./getById");
 const login = require("../auth/login");
+const logout = require("../auth/logout");
 
 module.export = {
   get,
@@ -16,4 +17,5 @@ module.export = {
   put,
   getById,
   login,
+  logout,
 }
