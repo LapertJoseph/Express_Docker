@@ -15,9 +15,10 @@ Express_Docker requires [Node.js](https://nodejs.org/) v16+ to run.
     npm install
 ```
 
-#### Launch DB + stored procedures ####
+#### Launch DB + seed + stored procedures ####
 ```sh
     npm run schema
+    npm run seed
     npm run procUser
 ``` 
 
